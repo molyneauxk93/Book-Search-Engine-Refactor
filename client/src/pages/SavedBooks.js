@@ -32,7 +32,7 @@ const SavedBooks = () => {
   });
 
    // remove book usemutation  
-  const [deleteBook] = useMutation(REMOVE_BOOK);
+  const [removeBook] = useMutation(REMOVE_BOOK);
 
   const userData = data?.me || {};
 
@@ -50,7 +50,7 @@ const SavedBooks = () => {
     }
 
     try {
-      const { data } = await deleteBook({
+      const { data } = await removeBook({
         variables: { bookId },
       });
 
@@ -61,7 +61,7 @@ const SavedBooks = () => {
     }
   };
 
-  // if data isn't here yet, say so
+  // if data isn't here yet, loading
   if (!data) {
     return <h2>LOADING...</h2>;
   }
